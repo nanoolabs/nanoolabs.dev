@@ -1,8 +1,8 @@
 import type { Metadata, Site, Socials } from "@types";
 
 export const SITE: Site = {
-  TITLE: "Nanoolabs",
-  DESCRIPTION: "Nanoolabs | Build fast, simple, and scalable.",
+  TITLE: "Nanoo",
+  DESCRIPTION: "Nanoolabs | Build to be fast, simple, and scalable.",
   EMAIL: "hi@nanoolabs.dev",
   NUM_POSTS_ON_HOMEPAGE: 5,
   NUM_PROJECTS_ON_HOMEPAGE: 3,
@@ -22,6 +22,11 @@ export const PROJECTS: Metadata = {
   TITLE: "Projects",
   DESCRIPTION:
     "A collection of projects with links to repositories and live demos.",
+};
+
+export const BRAND: Metadata = {
+  TITLE: "Brand",
+  DESCRIPTION: "Brand identity and assets for Nanoo.",
 };
 
 export const SOCIALS: Socials = [
