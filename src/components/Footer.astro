@@ -12,7 +12,16 @@ import BackToTop from "@components/BackToTop.astro";
       </div>
     </div>
     <div class="flex items-center justify-between">
-      <div>&copy; {new Date().getFullYear()} • {SITE.TITLE}</div>
+      <div class="flex flex-wrap items-center gap-2">
+        &copy; {new Date().getFullYear()} • {SITE.TITLE}
+        <span class="text-black/15 dark:text-white/15">|</span>
+        <a
+          href="/brand"
+          class="text-zinc-500 transition-colors duration-300 hover:text-black dark:text-white/50 dark:hover:text-white"
+        >
+          Brand
+        </a>
+      </div>
       <div class="flex flex-wrap items-center gap-1.5">
         <button
           id="light-theme-button"
