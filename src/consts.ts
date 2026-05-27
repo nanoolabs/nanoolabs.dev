@@ -43,6 +43,10 @@ export const SOCIALS: Socials = [
     HREF: "https://www.instagram.com/nanoolabs",
   },
   {
+    NAME: "Telegram",
+    HREF: "https://t.me/nanoolabs",
+  },
+  {
     NAME: "Email",
     HREF: "mailto:hi@nanoolabs.dev",
   },
