@@ -1,14 +1,10 @@
 @import "tailwindcss";
 
-@plugin '@tailwindcss/typography';
-
-@custom-variant dark (&:is(.dark *));
+@plugin "@tailwindcss/typography";
 
 @theme {
   --color-brand-cyan: #00ffff;
-  --color-brand-base-light: #ffffff;
   --color-brand-base-dark: #050505;
-  --color-brand-neutral-light: var(--color-gray-200);
   --color-brand-neutral-dark: var(--color-gray-800);
 
   --font-sans:
@@ -19,114 +15,119 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
+:root {
+  color-scheme: dark;
+  --bg-primary: #050505;
+  --text-primary: rgba(255, 255, 255, 0.8);
+  --border-primary: rgba(255, 255, 255, 0.15);
+  --nav-bg: rgba(0, 0, 0, 0.5);
+  --selection-bg: var(--color-cyan-400);
+  --selection-text: #000000;
+
+  /* shiki config colors - permanent dark */
+  --astro-code-foreground: #fafafa;
+  --astro-code-background: #09090b;
+  --astro-code-token-comment: #a19595;
+  --astro-code-token-keyword: #f47067;
+  --astro-code-token-string: #00a99a;
+  --astro-code-token-function: #6eafad;
+  --astro-code-token-constant: #b3cceb;
+  --astro-code-token-parameter: #4e8fdf;
+  --astro-code-token-string-expression: #bf7db6;
+  --astro-code-token-punctuation: #8996a3;
+  --astro-code-token-link: #8d85ff;
+}
+
 @layer base {
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
+    border-color: var(--border-primary);
+  }
+
+  html {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    scroll-padding-top: 100px;
+  }
+
+  body {
+    @apply flex size-full flex-col font-sans antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
   }
 }
 
 @layer utilities {
-  html {
-    overflow-y: auto;
-    color-scheme: light;
-    scroll-padding-top: 100px;
+  header {
+    @apply fixed top-4 right-0 left-0 z-50 flex items-center justify-center;
   }
 
-  html.dark {
-    color-scheme: dark;
+  header .nav-container {
+    @apply mx-4 flex w-full max-w-[800px] items-center justify-between gap-4 rounded-lg border border-white/25 bg-black/50 px-6 py-2 saturate-200 backdrop-blur-md transition-all duration-300 ease-in-out sm:mx-0;
   }
 
-  html,
-  body {
-    @apply size-full;
-    body {
-      @apply font-sans antialiased;
-      @apply flex flex-col;
-      @apply bg-white dark:bg-[#050505];
-      @apply text-zinc-900/80 dark:text-white/80;
-    }
-
-    header {
-      @apply fixed top-4 right-0 left-0 z-50;
-      @apply flex items-center justify-center;
-    }
-
-    header .nav-container {
-      @apply flex items-center justify-between gap-4;
-      @apply bg-white/70 dark:bg-black/50;
-      @apply saturate-200 backdrop-blur-md;
-      @apply border border-black/15 dark:border-white/25;
-      @apply rounded-lg px-6 py-2;
-      @apply mx-4 w-full max-w-[800px] sm:mx-0;
-      @apply transition-all duration-300 ease-in-out;
-    }
-
-    main {
-      @apply flex-1 py-32;
-    }
-
-    footer {
-      @apply py-6 text-sm;
-    }
-
-    article {
-      @apply prose dark:prose-invert prose-img:mx-auto prose-img:my-auto max-w-full;
-      @apply prose-headings:font-semibold;
-      @apply prose-headings:text-zinc-900 prose-headings:dark:text-white;
-      @apply prose-p:text-zinc-600 prose-p:dark:text-white/70;
-    }
+  main {
+    @apply flex-1 py-32;
   }
 
-  @layer base {
-    ::selection {
-      @apply bg-cyan-200 text-zinc-900 dark:bg-cyan-400 dark:text-black;
-    }
-
-    /* Scrollbar styles */
-    ::-webkit-scrollbar {
-      @apply w-2;
-    }
-
-    ::-webkit-scrollbar-track {
-      @apply bg-transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      @apply rounded-full bg-zinc-300 dark:bg-stone-800;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      @apply bg-zinc-400 dark:bg-cyan-900;
-    }
+  footer {
+    @apply py-6 text-sm;
   }
 
-  @layer utilities {
-    article a {
-      @apply font-sans text-current underline underline-offset-2;
-      @apply decoration-zinc-300 dark:decoration-cyan-400/30;
-      @apply transition-colors duration-300 ease-in-out;
-    }
-    article a:hover {
-      @apply text-cyan-700 dark:text-cyan-400;
-      @apply decoration-cyan-500/50 dark:decoration-cyan-400/50;
-    }
+  article {
+    @apply prose prose-invert max-w-full;
+    @apply prose-headings:font-semibold prose-headings:text-white;
+    @apply prose-p:text-white/70;
+  }
+}
+
+@layer base {
+  ::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-text);
   }
 
-  /* shiki config */
-  pre {
-    @apply border-l-2 border-cyan-400 bg-zinc-100/50 dark:bg-[#0a0a0a];
-    @apply py-5;
-    @apply rounded-r-lg;
-  }
-  article :not(pre) > code {
-    @apply rounded bg-zinc-100 px-1 py-0.5 text-cyan-700 dark:bg-white/10 dark:text-cyan-400;
+  /* Scrollbar styles */
+  ::-webkit-scrollbar {
+    @apply w-2;
   }
 
-  @apply transition-all duration-300 ease-out;
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-stone-800;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-cyan-900;
+  }
+}
+
+@layer utilities {
+  article a {
+    @apply font-sans text-current underline decoration-cyan-400/30 underline-offset-2 transition-colors duration-300 ease-in-out;
+  }
+  article a:hover {
+    @apply text-cyan-400 decoration-cyan-400/50;
+  }
+}
+
+/* shiki config */
+pre {
+  @apply rounded-r-lg border-l-2 border-cyan-400 bg-[#0a0a0a] py-5;
+}
+
+article :not(pre) > code {
+  @apply rounded bg-white/10 px-1 py-0.5 text-cyan-400;
+}
+
+.animate {
+  @apply translate-y-3 opacity-0 transition-all duration-300 ease-out;
 }
 
 .animate.show {
@@ -141,46 +142,13 @@ html.scrolled #back-to-top {
   @apply pointer-events-auto opacity-100;
 }
 
-/* shiki config */
-pre {
-  @apply border border-black/15 py-5 dark:border-white/20;
-}
-
-:root {
-  --astro-code-foreground: #09090b;
-  --astro-code-background: #fafafa;
-  --astro-code-token-comment: #a19595;
-  --astro-code-token-keyword: #f47067;
-  --astro-code-token-string: #00a99a;
-  --astro-code-token-function: #429996;
-  --astro-code-token-constant: #2b70c5;
-  --astro-code-token-parameter: #4e8fdf;
-  --astro-code-token-string-expression: #ae42a0;
-  --astro-code-token-punctuation: #8996a3;
-  --astro-code-token-link: #8d85ff;
-}
-
-.dark {
-  --astro-code-foreground: #fafafa;
-  --astro-code-background: #09090b;
-  --astro-code-token-comment: #a19595;
-  --astro-code-token-keyword: #f47067;
-  --astro-code-token-string: #00a99a;
-  --astro-code-token-function: #6eafad;
-  --astro-code-token-constant: #b3cceb;
-  --astro-code-token-parameter: #4e8fdf;
-  --astro-code-token-string-expression: #bf7db6;
-  --astro-code-token-punctuation: #8996a3;
-  --astro-code-token-link: #8d85ff;
-}
-
 /* copy code button on codeblocks */
 .copy-code {
-  @apply absolute top-3 right-3 grid size-9 place-content-center rounded-sm border border-black/15 bg-neutral-100 text-center duration-300 ease-in-out dark:border-white/20 dark:bg-neutral-900;
+  @apply absolute top-3 right-3 grid size-9 place-content-center rounded-sm border border-white/20 bg-neutral-900 text-center duration-300 ease-in-out;
 }
 
 .copy-code:hover {
-  @apply bg-[#E9E9E9] transition-colors dark:bg-[#232323];
+  @apply bg-[#232323] transition-colors;
 }
 
 .copy-code:active {
