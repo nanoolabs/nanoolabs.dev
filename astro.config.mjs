@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, passthroughImageService } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import mdx from "@astrojs/mdx";
 import pagefind from "astro-pagefind";
@@ -15,5 +15,8 @@ export default defineConfig({
     shikiConfig: {
       theme: "css-variables",
     },
+  },
+  image: {
+    service: passthroughImageService(),
   },
 });
