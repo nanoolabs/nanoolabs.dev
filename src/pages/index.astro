@@ -23,23 +23,23 @@ const projects = (await getCollection("projects"))
       <section class="animate py-8">
         <div class="mb-8">
           <div
-            class="border-brand-neutral-light dark:border-brand-neutral-dark flex size-24 items-center justify-center overflow-hidden rounded-xl border"
+            class="flex size-24 items-center justify-center overflow-hidden rounded-xl border border-white/15"
           >
-            <div class="size-20 text-black dark:text-white">
+            <div class="size-20 text-white">
               <Fragment set:html={ICONS.LOGO} />
             </div>
           </div>
         </div>
         <article class="space-y-4">
-          <h1 class="text-2xl font-semibold text-black dark:text-white">
+          <h1 class="text-2xl font-semibold text-white">
             A Lab for Experiments.
           </h1>
           <blockquote
-            class="mt-4 border-l-2 border-zinc-300 pl-4 text-zinc-600 italic dark:border-zinc-700 dark:text-white/70"
+            class="mt-4 border-l-2 border-white/15 pl-4 text-white/70 italic"
           >
             "Built fast, simple, and scalable"
           </blockquote>
-          <div class="mt-4 text-zinc-600 dark:text-white/70">
+          <div class="mt-4 text-white/70">
             Nanoo is a development lab for experiment with Cloud, Edge, and
             Business logic to create simple and effective solutions.
           </div>
@@ -47,13 +47,13 @@ const projects = (await getCollection("projects"))
         <nav class="flex flex-wrap gap-2 pt-6">
           <a
             href="https://docs.nanoolabs.dev"
-            class="rounded-sm border border-black/15 bg-zinc-100 px-3 py-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black dark:border-white/25 dark:bg-[#0a0a0a] dark:hover:bg-white/5 dark:hover:text-white"
+            class="rounded-sm border border-white/25 bg-[#0a0a0a] px-3 py-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-white/5 hover:text-white"
           >
             Read the docs
           </a>
           <a
             href="/projects"
-            class="rounded-sm border border-black/15 bg-zinc-100 px-3 py-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black dark:border-white/25 dark:bg-[#0a0a0a] dark:hover:bg-white/5 dark:hover:text-white"
+            class="rounded-sm border border-white/25 bg-[#0a0a0a] px-3 py-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-white/5 hover:text-white"
           >
             View projects
           </a>
@@ -62,10 +62,10 @@ const projects = (await getCollection("projects"))
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="font-semibold text-black dark:text-white">Latest posts</h2>
+          <h2 class="font-semibold text-white">Latest posts</h2>
           <a
             href="/blog"
-            class="text-sm text-zinc-500 underline decoration-zinc-300 transition-colors hover:text-black hover:decoration-black dark:text-white/50 dark:decoration-white/30 dark:hover:text-white dark:hover:decoration-white"
+            class="text-sm text-white/50 underline decoration-white/30 transition-colors hover:text-white hover:decoration-white"
           >
             See all posts
           </a>
@@ -83,12 +83,10 @@ const projects = (await getCollection("projects"))
 
       <section class="animate space-y-6">
         <div class="flex flex-wrap items-center justify-between gap-y-2">
-          <h2 class="font-semibold text-black dark:text-white">
-            Recent projects
-          </h2>
+          <h2 class="font-semibold text-white">Recent projects</h2>
           <a
             href="/projects"
-            class="text-sm text-zinc-500 underline decoration-zinc-300 transition-colors hover:text-black hover:decoration-black dark:text-white/50 dark:decoration-white/30 dark:hover:text-white dark:hover:decoration-white"
+            class="text-sm text-white/50 underline decoration-white/30 transition-colors hover:text-white hover:decoration-white"
           >
             See all projects
           </a>
@@ -105,7 +103,7 @@ const projects = (await getCollection("projects"))
       </section>
 
       <section class="animate space-y-4">
-        <h2 class="font-semibold text-black dark:text-white">Contact</h2>
+        <h2 class="font-semibold text-white">Contact</h2>
         <article>
           <p>
             Feel free to contact nanoolabs for collaboration or any questions.
@@ -118,7 +116,7 @@ const projects = (await getCollection("projects"))
                 <a
                   href={SOCIAL.HREF}
                   target="_blank"
-                  class="rounded-sm border border-black/15 bg-zinc-100 px-3 py-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-black/5 hover:text-black dark:border-white/25 dark:bg-[#0a0a0a] dark:hover:bg-white/5 dark:hover:text-white"
+                  class="rounded-sm border border-white/25 bg-[#0a0a0a] px-3 py-1.5 text-sm transition-colors duration-300 ease-in-out hover:bg-white/5 hover:text-white"
                   aria-label={`${SITE.TITLE} on ${SOCIAL.NAME}`}
                 >
                   {SOCIAL.NAME}
