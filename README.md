@@ -1,11 +1,43 @@
-# Introducing [Astro Micro 🔬](https://astro-micro.vercel.app/)
+# Nanoolabs (v1.1.0)
 
-Astro Micro is an accessible theme for Astro. It's a fork of [Mark Horn's](https://github.com/markhorn-dev) popular theme [Astro Nano](https://astro-nano-demo.vercel.app/). Like Nano, Micro comes with zero frameworks installed.
+> **A Lab for Experiments**
 
-Micro adds features like [Pagefind](https://pagefind.app) for search, [Giscus](https://giscus.app) for comments, and more. For a full list of changes, see this [blog post](https://astro-micro.vercel.app/blog/00-micro-changelog).
+Nanoolabs is a minimalist technical Research and Development (R&D) environment built for high performance experiment
 
-Micro still comes with everything great about Nano — full type safety, a sitemap, an RSS feed, and Markdown + MDX support. Styled with TailwindCSS and preconfigured with system, light, and dark themes.
+## Tech Stack
+
+- **Framework:** [Astro 5.x](https://astro.build/) (Static First)
+- **Styling:** [TailwindCSS 4](https://tailwindcss.com/) (Vite Plugin)
+- **Runtime:** [Node.js 22 (LTS)](https://nodejs.org/)
+- **Package Manager:** [pnpm](https://pnpm.io/)
+- **Search:** [Pagefind](https://pagefind.app/)
+- **Deployment:** [Cloudflare Pages](https://pages.cloudflare.com/)
+- **CI/CD:** GitHub Actions
+
+## Development
+
+```bash
+# Install dependencies
+pnpm install
+
+# Start development server
+pnpm dev
+
+# Build for production
+pnpm run build
+
+# Preview build locally
+pnpm preview
+```
+
+## Deployment
+
+Automatic deployment is handled via GitHub Actions to **Cloudflare Pages**.
+
+- **Branch:** `main` triggers production build.
+- **Environment:** Node 22, pnpm 9.
+- **Project Name:** `nanoolabs`
 
 ---
 
-![astro-micro](https://github.com/user-attachments/assets/fc9b55b9-53e5-4933-9d23-936e1c61e6c2)
+Built to be fast, simple, and scalable by [Adnan Slamet Wibowo](https://nanoolabs.dev).
