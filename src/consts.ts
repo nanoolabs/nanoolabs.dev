@@ -1,7 +1,7 @@
 import type { Metadata, Site, Socials } from "@types";
 
 export const SITE: Site = {
-  TITLE: "Nanoo",
+  TITLE: "Nanoolabs",
   DESCRIPTION: "Nanoolabs | Build to be fast, simple, and scalable.",
   EMAIL: "hi@nanoolabs.dev",
   NUM_POSTS_ON_HOMEPAGE: 5,
@@ -10,7 +10,7 @@ export const SITE: Site = {
 
 export const HOME: Metadata = {
   TITLE: "Home",
-  DESCRIPTION: "Astro Micro is an accessible theme for Astro.",
+  DESCRIPTION: "A Lab for Experiments.",
 };
 
 export const BLOG: Metadata = {
