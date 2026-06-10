@@ -4,40 +4,114 @@ import Container from '../components/Container.astro'
 import Card from '../components/Card.astro'
 import Button from '../components/Button.astro'
 import Footer from '../components/Footer.astro'
-import { BRAND_TAGLINE } from '../consts'
+import { BRAND_TAGLINE, EXPERIMENTS } from '../consts'
 ---
 
-<BaseLayout class="flex flex-col items-center justify-center p-8 text-center">
-  <Container class="flex flex-col items-center">
-    <main class="w-full">
+<BaseLayout>
+  <Container size="md" class="py-24 md:py-32">
+    <header class="mb-20 text-center">
       <h1
-        class="text-primary mb-4 font-sans text-5xl font-bold tracking-tight md:text-6xl"
+        class="text-fluid-xl text-primary mb-6 leading-[0.9] font-extrabold uppercase italic"
       >
-        nanoo
+        Nanoo Labs
       </h1>
-
       <blockquote
-        class="text-mute tracking-eyebrow mb-12 font-mono text-xs uppercase italic md:text-sm"
+        class="text-mute tracking-eyebrow mb-8 font-mono text-[10px] uppercase italic opacity-70"
       >
         "{BRAND_TAGLINE}"
       </blockquote>
+      <p
+        class="text-body mx-auto max-w-[45ch] text-lg font-light tracking-wide md:text-xl"
+      >
+        Experimental engineering lab building a <span
+          class="text-ink-strong decoration-primary font-medium underline underline-offset-6"
+          >high-performance edge ecosystem</span
+        >.
+      </p>
+    </header>
 
-      <div class="grid gap-4 text-left">
-        <Card eyebrow="The Mission">
-          <p>
-            Nanoo is a development lab for the edge ecosystem. Experiment with
-            Cloud, Edge, and Business logic to build simple and effective
-            solutions.
-          </p>
-        </Card>
+    <div class="grid gap-20 text-left">
+      <Card
+        as="section"
+        eyebrow="The Mission"
+        class="border-primary/10 bg-canvas-soft/50 backdrop-blur-sm"
+      >
+        <p class="text-lg leading-relaxed">
+          Nanoo is a development lab for the edge ecosystem. Experiment with
+          Cloud, Edge, and Business logic to build simple and effective
+          solutions.
+        </p>
+      </Card>
 
-        <nav class="flex flex-wrap justify-center gap-3">
-          <Button href="https://docs.nanoolabs.dev"> Read Docs </Button>
-          <Button href="https://github.com/nanoolabs"> GitHub </Button>
-        </nav>
-      </div>
-    </main>
+      <section aria-labelledby="experiments-title">
+        <h2
+          id="experiments-title"
+          class="text-ink-strong mb-8 font-mono text-xs font-bold tracking-[0.3em] uppercase"
+        >
+          Laboratory Experiments
+        </h2>
+        <ul class="grid gap-6 sm:grid-cols-2">
+          {
+            EXPERIMENTS.map((exp) => (
+              <li>
+                <Card
+                  as="article"
+                  title={exp.name}
+                  class="group border-hairline/50 hover:border-primary/40 h-full transition-all duration-300"
+                >
+                  <div class="mb-4 flex items-center justify-between">
+                    <span class="text-mute border-hairline group-hover:border-primary/50 group-hover:text-primary rounded-full border px-2 py-0.5 font-mono text-[9px] tracking-wider uppercase transition-colors">
+                      {exp.status}
+                    </span>
+                  </div>
+                  <p class="text-body/80 mb-8 text-sm leading-relaxed">
+                    {exp.description}
+                  </p>
 
-    <Footer />
+                  <div class="mt-auto">
+                    {exp.href || exp.repo ? (
+                      <Button
+                        href={exp.href || exp.repo}
+                        variant="ghost"
+                        class="w-full rounded-full py-2 text-[10px] font-bold tracking-widest uppercase"
+                      >
+                        {exp.href ? 'Explore' : 'Source'}
+                      </Button>
+                    ) : (
+                      <Button
+                        as="button"
+                        disabled
+                        variant="ghost"
+                        class="w-full cursor-not-allowed rounded-full py-2 text-[10px] font-bold tracking-widest uppercase opacity-30"
+                      >
+                        Reserved
+                      </Button>
+                    )}
+                  </div>
+                </Card>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+
+      <nav
+        class="flex flex-wrap items-center justify-center gap-4"
+        aria-label="Social and Documentation Links"
+      >
+        <Button href="https://docs.nanoolabs.dev" class="rounded-full px-8">
+          Read Docs
+        </Button>
+        <Button
+          href="https://github.com/nanoolabs"
+          variant="ghost"
+          class="border-hairline hover:border-primary/50 rounded-full px-8"
+        >
+          GitHub
+        </Button>
+      </nav>
+    </div>
+
+    <Footer class="mt-20 opacity-50" />
   </Container>
 </BaseLayout>
