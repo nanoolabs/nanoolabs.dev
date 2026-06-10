@@ -1,0 +1,18 @@
+---
+import { FOOTER_COPYRIGHT } from '../consts'
+import type { FooterProps } from '../types'
+
+interface Props extends FooterProps {}
+
+const { class: className, ...rest } = Astro.props
+---
+
+<footer
+  class:list={[
+    'text-mute tracking-eyebrow mt-20 font-mono text-[10px] uppercase',
+    className,
+  ]}
+  {...rest}
+>
+  {FOOTER_COPYRIGHT}
+</footer>

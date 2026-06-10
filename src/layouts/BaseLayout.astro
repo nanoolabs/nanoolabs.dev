@@ -1,0 +1,25 @@
+---
+import '../styles/global.css'
+import Meta from '../components/Meta.astro'
+import type { LayoutProps } from '../types'
+
+interface Props extends LayoutProps {}
+
+const { title, description, class: className, ...rest } = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <Meta title={title} description={description} />
+  </head>
+  <body
+    class:list={[
+      'bg-canvas text-ink selection:bg-primary selection:text-on-primary min-h-screen font-sans',
+      className,
+    ]}
+    {...rest}
+  >
+    <slot />
+  </body>
+</html>

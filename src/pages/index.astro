@@ -1,19 +1,15 @@
 ---
-import '../styles/global.css'
+import BaseLayout from '../layouts/BaseLayout.astro'
+import Container from '../components/Container.astro'
+import Card from '../components/Card.astro'
+import Button from '../components/Button.astro'
+import Footer from '../components/Footer.astro'
+import { BRAND_TAGLINE } from '../consts'
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Nanoo | Lab</title>
-  </head>
-  <body
-    class="bg-canvas text-ink flex min-h-screen flex-col items-center justify-center p-8 text-center"
-  >
-    <main class="w-full max-w-2xl">
+<BaseLayout class="flex flex-col items-center justify-center p-8 text-center">
+  <Container class="flex flex-col items-center">
+    <main class="w-full">
       <h1
         class="text-primary mb-4 font-sans text-5xl font-bold tracking-tight md:text-6xl"
       >
@@ -23,44 +19,25 @@ import '../styles/global.css'
       <blockquote
         class="text-mute tracking-eyebrow mb-12 font-mono text-xs uppercase italic md:text-sm"
       >
-        "Built to be fast, simple, and scalable"
+        "{BRAND_TAGLINE}"
       </blockquote>
 
       <div class="grid gap-4 text-left">
-        <div class="border-hairline bg-canvas-soft rounded-md border p-6">
-          <h2
-            class="text-primary tracking-eyebrow mb-2 font-mono text-[10px] uppercase"
-          >
-            The Mission
-          </h2>
-          <p class="text-body text-sm">
+        <Card eyebrow="The Mission">
+          <p>
             Nanoo is a development lab for the edge ecosystem. Experiment with
             Cloud, Edge, and Business logic to build simple and effective
             solutions.
           </p>
-        </div>
+        </Card>
 
         <nav class="flex flex-wrap justify-center gap-3">
-          <a
-            href="https://docs.nanoolabs.dev"
-            class="border-hairline hover:bg-canvas-soft text-mute hover:text-primary tracking-eyebrow rounded-md border px-4 py-2 font-mono text-[10px] uppercase transition-colors"
-          >
-            Read Docs
-          </a>
-          <a
-            href="https://github.com/nanoolabs"
-            class="border-hairline hover:bg-canvas-soft text-mute hover:text-primary tracking-eyebrow rounded-md border px-4 py-2 font-mono text-[10px] uppercase transition-colors"
-          >
-            GitHub
-          </a>
+          <Button href="https://docs.nanoolabs.dev"> Read Docs </Button>
+          <Button href="https://github.com/nanoolabs"> GitHub </Button>
         </nav>
       </div>
     </main>
 
-    <footer
-      class="text-mute tracking-eyebrow mt-20 font-mono text-[10px] uppercase"
-    >
-      &copy; 2026 Nanoo Lab // Performance First
-    </footer>
-  </body>
-</html>
+    <Footer />
+  </Container>
+</BaseLayout>
