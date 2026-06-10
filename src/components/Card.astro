@@ -3,10 +3,16 @@ import type { CardProps } from '../types'
 
 interface Props extends CardProps {}
 
-const { title, eyebrow, class: className, ...rest } = Astro.props
+const {
+  title,
+  eyebrow,
+  as: Tag = 'div',
+  class: className,
+  ...rest
+} = Astro.props
 ---
 
-<div
+<Tag
   class:list={[
     'border-hairline bg-canvas-soft rounded-md border p-6',
     className,
@@ -28,4 +34,4 @@ const { title, eyebrow, class: className, ...rest } = Astro.props
   <div class="text-body text-sm">
     <slot />
   </div>
-</div>
+</Tag>

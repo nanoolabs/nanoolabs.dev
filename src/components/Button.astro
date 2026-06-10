@@ -3,7 +3,13 @@ import type { ButtonProps } from '../types'
 
 interface Props extends ButtonProps {}
 
-const { href, variant = 'ghost', class: className, ...rest } = Astro.props
+const {
+  href,
+  variant = 'ghost',
+  as: Tag = 'a',
+  class: className,
+  ...rest
+} = Astro.props
 
 const variants = {
   primary:
@@ -13,14 +19,15 @@ const variants = {
 }
 ---
 
-<a
+<Tag
   href={href}
   class:list={[
-    'tracking-eyebrow inline-flex items-center justify-center rounded-md px-4 py-2 font-mono text-[10px] uppercase transition-colors',
+    'tracking-eyebrow inline-flex items-center justify-center px-4 py-2 font-mono text-[10px] uppercase transition-all duration-300',
+    !className?.includes('rounded-') && 'rounded-md',
     variants[variant],
     className,
   ]}
   {...rest}
 >
   <slot />
-</a>
+</Tag>

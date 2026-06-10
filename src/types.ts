@@ -10,10 +10,12 @@ export interface LayoutProps extends HTMLAttributes<'div'> {
 export interface CardProps extends BaseProps {
   title?: string
   eyebrow?: string
+  as?: any
 }
 
 export interface ButtonProps extends HTMLAttributes<'a'> {
   variant?: 'primary' | 'ghost'
+  as?: 'a' | 'button'
 }
 
 export interface LinkProps extends HTMLAttributes<'a'> {
@@ -22,3 +24,11 @@ export interface LinkProps extends HTMLAttributes<'a'> {
 }
 
 export interface FooterProps extends HTMLAttributes<'footer'> {}
+
+export interface Experiment {
+  name: string
+  description: string
+  status: string
+  href?: string | null
+  repo?: string | null
+}
