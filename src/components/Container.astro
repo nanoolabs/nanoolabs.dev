@@ -1,13 +1,20 @@
 ---
 import type { BaseProps } from '../types'
 
-interface Props extends BaseProps {}
+interface Props extends BaseProps {
+  size?: 'md' | 'lg'
+}
 
-const { class: className, ...rest } = Astro.props
+const { size = 'lg', class: className, ...rest } = Astro.props
+
+const sizes = {
+  md: 'max-w-3xl',
+  lg: 'max-w-5xl',
+}
 ---
 
 <div
-  class:list={['mx-auto w-full max-w-2xl px-6 md:px-8', className]}
+  class:list={['mx-auto w-full px-6 md:px-8', sizes[size], className]}
   {...rest}
 >
   <slot />
