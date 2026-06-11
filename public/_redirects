@@ -1,0 +1,7 @@
+# --- NANOO LAB REDIRECTS ---
+
+/home            /               301
+/home/*          /:splat         301
+/lab-test        /               302
+/querystrings    /?query=string  301
+
