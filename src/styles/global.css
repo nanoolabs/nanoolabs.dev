@@ -1,3 +1,6 @@
+/* Import Design System Token Nanoolabs */
+@import '@nlbs/css/src/variables.css';
+
 @import 'tailwindcss';
 @import '@fontsource/geist-sans/300.css';
 @import '@fontsource/geist-sans/400.css';
@@ -8,31 +11,35 @@
 
 @theme {
   /* Brand Identity */
-  --color-primary: #00ffff;
-  --color-primary-soft: #00e5e5;
-  --color-primary-deep: #00cccc;
-  --color-on-primary: #000000;
+  --color-primary: var(--nl-color-primary);
+  --color-primary-soft: var(--nl-color-primary-soft);
+  --color-primary-deep: var(--nl-color-primary-deep);
+  --color-on-primary: var(--nl-color-on-primary);
 
   /* Surface & Borders */
-  --color-canvas: #050505;
-  --color-canvas-soft: #0a0a0a;
-  --color-hairline: #1f2937;
-  --color-hairline-soft: #374151;
+  --color-canvas: var(--nl-color-canvas);
+  --color-canvas-soft: var(--nl-color-canvas-soft);
+  --color-hairline: var(--nl-color-border);
+  --color-hairline-soft: var(--nl-color-border-soft);
 
   /* Text */
-  --color-ink: #f2f2f2;
-  --color-ink-strong: #ffffff;
-  --color-body: #bdbdbd;
-  --color-mute: #8b949e;
+  --color-ink: var(--nl-color-ink);
+  --color-ink-strong: var(--nl-color-ink-strong);
+  --color-body: var(--nl-color-body);
+  --color-mute: var(--nl-color-mute);
 
   /* Typography */
-  --font-sans: 'Geist Sans', ui-sans-serif, system-ui;
-  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular;
+  --font-sans: var(--nl-font-sans);
+  --font-mono: var(--nl-font-mono);
 
   /* Precision Tracking */
-  --tracking-tight: -0.02em;
-  --tracking-tighter: -0.04em;
+  --tracking-tight: var(--nl-display-lg-ls);
+  --tracking-tighter: var(--nl-display-xl-ls);
   --tracking-eyebrow: 0.1em;
+
+  /* Typography Utilities */
+  --text-fluid-xl: var(--nl-display-xl-size);
+  --text-fluid-lg: var(--nl-display-lg-size);
 }
 
 @layer base {
@@ -82,18 +89,9 @@
   }
   ::-webkit-scrollbar-thumb {
     background: var(--color-hairline);
-    border-radius: 10px;
+    border-radius: var(--radius-full);
   }
   ::-webkit-scrollbar-thumb:hover {
     background: var(--color-primary);
-  }
-}
-
-@layer utilities {
-  .text-fluid-xl {
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-  }
-  .text-fluid-lg {
-    font-size: clamp(1.5rem, 5vw, 2.5rem);
   }
 }
