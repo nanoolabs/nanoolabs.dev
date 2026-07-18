@@ -1,9 +1,9 @@
 ---
 import { FOOTER_COPYRIGHT } from '../consts'
-import type { FooterProps } from '../types'
+import type { HTMLAttributes } from 'astro/types'
 import RingNav from './RingNav.astro'
 
-interface Props extends FooterProps {}
+interface Props extends HTMLAttributes<'footer'> {}
 
 const { class: className, ...rest } = Astro.props
 ---

@@ -2,7 +2,7 @@
 
 > Official website and lab showcase for Nanoo. Astro 5 site (currently single page, growing) deploy to Cloudflare Pages.
 
-` Astro ` ` Tailwind CSS ` ` Cloudflare Pages ` ` pnpm `
+`Astro` `Tailwind CSS` `Cloudflare Pages` `pnpm`
 
 ## Overview
 
