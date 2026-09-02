@@ -1,4 +1,12 @@
+# Dependencies
 node_modules
+
+# Build output
 dist
 .astro
+
+# Lockfiles
 pnpm-lock.yaml
+
+# GitHub workflows
+.github/
